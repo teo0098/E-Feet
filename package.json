@@ -13,7 +13,6 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "husky:pre-commit": "yarn test && lint-staged",
-    "husky:commit-msg": "commitlint --edit $1",
     "commit": "git-cz"
   },
   "config": {
