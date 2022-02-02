@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
 
-const Home: NextPage = () => <div className="text-3xl font-bold underline shadow">Text</div>;
+const Home: NextPage = () => <h1>E-Feet</h1>;
 
 export default Home;
