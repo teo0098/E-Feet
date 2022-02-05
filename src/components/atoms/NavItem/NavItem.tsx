@@ -5,6 +5,7 @@ type NavItemProps = {
   styles?: { [key: string]: string };
   className?: string;
   children?: React.ReactNode;
+  active?: boolean;
 };
 
 const NavItem: React.VFC<NavItemProps> = ({
@@ -12,8 +13,13 @@ const NavItem: React.VFC<NavItemProps> = ({
   styles = {},
   className = '',
   children = null,
+  active = false,
 }) => {
-  const classNames: string = ['', className].join(' ');
+  const classNames: string = [
+    'text-neutral-900 border-b-4',
+    active ? 'border-neutral-900' : 'border-transparent',
+    className,
+  ].join(' ');
 
   return (
     <Link href={href}>

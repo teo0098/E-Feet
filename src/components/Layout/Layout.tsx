@@ -5,7 +5,7 @@ type LayoutProps = {
 };
 
 const Layout: React.VFC<LayoutProps> = ({ children }) => (
-  <div className="min-h-screen bg-slate-200">
+  <div className="min-h-screen bg-slate-100">
     {children}
     <Navigation />
   </div>
