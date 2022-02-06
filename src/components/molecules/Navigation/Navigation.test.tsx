@@ -21,4 +21,18 @@ describe('Main navigation component tests', () => {
     const linkElements = within(navElement).getAllByRole('link');
     expect(linkElements).toHaveLength(3);
   });
+
+  it('Renders with custom styles', () => {
+    render(<Navigation styles={{ color: 'red' }} />);
+    const navElement = screen.getByRole('navigation');
+    expect(navElement).toBeVisible();
+    expect(navElement).toHaveStyle({ color: 'red' });
+  });
+
+  it('Renders with custom className', () => {
+    render(<Navigation className="text-neutral-200" />);
+    const navElement = screen.getByRole('navigation');
+    expect(navElement).toBeVisible();
+    expect(navElement).toHaveClass('text-neutral-200');
+  });
 });
