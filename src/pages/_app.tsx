@@ -4,10 +4,16 @@ import '../styles/globals.css';
 
 import { Layout } from '@components/Layout';
 
-const App = ({ Component, pageProps }: AppProps) => (
-  <Layout>
-    <Component {...pageProps} />
-  </Layout>
-);
+import { useInitFirebase } from '@hooks/index';
+
+const App = ({ Component, pageProps }: AppProps) => {
+  useInitFirebase();
+
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
+};
 
 export default App;

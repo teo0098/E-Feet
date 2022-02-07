@@ -1,7 +1,6 @@
 {
   "extends": [
     "prettier",
-    "plugin:storybook/recommended",
     "plugin:tailwindcss/recommended",
     "plugin:testing-library/react",
     "plugin:jest-dom/recommended",
