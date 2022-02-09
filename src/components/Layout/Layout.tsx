@@ -1,4 +1,4 @@
-import { Navigation } from '@components/molecules';
+import { BrandLogo, Navigation } from '@components/molecules';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -11,6 +11,7 @@ const Layout: React.VFC<LayoutProps> = ({ children, className = '', styles = {} 
 
   return (
     <div style={styles} className={classNames} data-testid="mainLayout">
+      <BrandLogo />
       {children}
       <Navigation />
     </div>

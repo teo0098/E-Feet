@@ -8,6 +8,12 @@ const Search: React.VFC<IconProps> = ({
   size = '3xl',
   color = colors.neutral[900],
   styles = {},
-}) => <SearchRoundedIcon style={{ fontSize: FontSizes[size], color, ...styles }} />;
+  className = '',
+}) => (
+  <SearchRoundedIcon
+    className={className}
+    style={{ fontSize: FontSizes[size], color, ...styles }}
+  />
+);
 
 export default Search;

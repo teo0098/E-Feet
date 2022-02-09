@@ -1,5 +1,13 @@
 import type { NextPage } from 'next';
 
-const Home: NextPage = () => <h1>E-Feet</h1>;
+import { SEO } from '@components/atoms';
+import { Home as HomeTemplate } from '@components/templates';
+
+const Home: NextPage = () => (
+  <>
+    <SEO />
+    <HomeTemplate />
+  </>
+);
 
 export default Home;

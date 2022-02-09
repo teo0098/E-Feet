@@ -6,6 +6,23 @@ exports[`Layout component tests Snapshots content 1`] = `
     class="min-h-screen bg-slate-100 "
     data-testid="mainLayout"
   >
+    <header
+      class="shadow-md flex justify-center p-2 rounded-b-3xl "
+    >
+      <span
+        style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 78.125px; height: 50px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+      >
+        <img
+          alt="E-Feet"
+          class=" "
+          data-nimg="fixed"
+          decoding="async"
+          src="/_next/image?url=%2Ftest-file-stub&w=256&q=75"
+          srcset="/_next/image?url=%2Ftest-file-stub&w=96&q=75 1x, /_next/image?url=%2Ftest-file-stub&w=256&q=75 2x"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+        />
+      </span>
+    </header>
     <h1>
       E-feet
     </h1>

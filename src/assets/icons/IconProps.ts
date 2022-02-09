@@ -4,4 +4,5 @@ export type IconProps = {
   size?: FontSizesKeyType;
   color?: string;
   styles?: { [key: string]: string };
+  className?: string;
 };

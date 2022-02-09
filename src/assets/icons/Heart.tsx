@@ -8,6 +8,12 @@ const Heart: React.VFC<IconProps> = ({
   size = '3xl',
   color = colors.neutral[900],
   styles = {},
-}) => <FavoriteRoundedIcon style={{ fontSize: FontSizes[size], color, ...styles }} />;
+  className = '',
+}) => (
+  <FavoriteRoundedIcon
+    className={className}
+    style={{ fontSize: FontSizes[size], color, ...styles }}
+  />
+);
 
 export default Heart;
