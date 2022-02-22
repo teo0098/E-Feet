@@ -6,7 +6,7 @@ type BrandLogoProps = {
 };
 
 const BrandLogo: React.VFC<BrandLogoProps> = ({ styles = {}, className = '' }) => {
-  const classNames = ['shadow-md flex justify-center p-2 rounded-b-3xl', className].join(' ');
+  const classNames = ['shadow-md flex justify-center p-2 rounded-b-lg', className].join(' ');
 
   return (
     <header style={styles} className={classNames}>

@@ -1,1 +1,0 @@
-export { useInitFirebase } from './useInitFirebase';

@@ -7,7 +7,7 @@ exports[`Layout component tests Snapshots content 1`] = `
     data-testid="mainLayout"
   >
     <header
-      class="shadow-md flex justify-center p-2 rounded-b-3xl "
+      class="shadow-md flex justify-center p-2 rounded-b-lg "
     >
       <span
         style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 78.125px; height: 50px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"

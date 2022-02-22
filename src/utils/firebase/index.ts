@@ -1,1 +1,1 @@
-export { initializeFirebase, firebaseConfig } from './init';
+export { firestore } from './init';
