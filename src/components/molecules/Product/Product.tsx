@@ -9,7 +9,6 @@ type Styles = { [key: string]: string };
 type ProductProps = {
   styles?: Styles;
   className?: string;
-  children?: React.ReactNode;
   imageSrc: string;
   imageAlt?: string;
   price?: number;
@@ -19,7 +18,6 @@ type ProductProps = {
 const Product: React.VFC<ProductProps> = ({
   styles = {},
   className = '',
-  children = null,
   imageSrc = '',
   imageAlt = 'Product image',
   price = 0,
@@ -33,9 +31,8 @@ const Product: React.VFC<ProductProps> = ({
         <Image src={imageSrc} layout="fill" objectFit="cover" alt={imageAlt} />
         <Heart />
       </div>
-      <Price> {price} </Price>
-      <Title variant="h1"> {title} </Title>
-      {children}
+      <Price>{price}</Price>
+      <Title variant="h1">{title}</Title>
     </section>
   );
 };

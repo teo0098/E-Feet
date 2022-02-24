@@ -30,22 +30,4 @@ describe('Single standalone product tests', () => {
     expect(productElement).toBeVisible();
     expect(productElement).toHaveClass('text-neutral-200');
   });
-
-  it('Renders content with custom children', () => {
-    const productTitle = 'Sprandi new model';
-    render(
-      <Product price={259.25} title={productTitle} imageSrc="https://via.placeholder.com/150">
-        <h1>Custom Text</h1>
-      </Product>
-    );
-    const priceElement = screen.getByTestId('productPrice');
-    expect(priceElement).toBeVisible();
-    expect(priceElement).toHaveTextContent('259.25');
-    const titleElement = screen.getByRole('heading', { name: productTitle });
-    expect(titleElement).toBeVisible();
-    const imageElement = screen.getByRole('img', { name: 'Product image' });
-    expect(imageElement).toBeVisible();
-    const childrenElement = screen.getByRole('heading', { name: /Custom Text/i });
-    expect(childrenElement).toBeVisible();
-  });
 });
