@@ -3,21 +3,18 @@ import Alert from '@mui/material/Alert';
 
 import { Product } from '@components/molecules';
 
-type Styles = { [key: string]: string };
+import { Shoes } from 'src/types';
 
-type ProductType = {
-  title: string;
-  mainImage: string;
-  price: number;
-  id: string;
-};
+import { DEFAULT_IMAGE } from '@utils/addons';
+
+type Styles = { [key: string]: string };
 
 type ProductProps = {
   styles?: Styles;
   className?: string;
   isLoading?: boolean;
   isError?: boolean;
-  data?: Array<ProductType>;
+  data?: Shoes;
 };
 
 const Products: React.VFC<ProductProps> = ({
@@ -48,7 +45,12 @@ const Products: React.VFC<ProductProps> = ({
   return (
     <div data-testid="products" style={styles} className={classNames}>
       {data.map(({ id, mainImage, price, title }) => (
-        <Product key={id} imageSrc={mainImage} title={title} price={price} />
+        <Product
+          key={id}
+          imageSrc={mainImage?.trim?.() ? mainImage : DEFAULT_IMAGE}
+          title={title}
+          price={price}
+        />
       ))}
     </div>
   );

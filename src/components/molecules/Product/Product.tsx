@@ -4,6 +4,8 @@ import { Heart } from '@assets/icons';
 
 import { Price, Title } from '@components/atoms';
 
+import { DEFAULT_IMAGE } from '@utils/addons';
+
 type Styles = { [key: string]: string };
 
 type ProductProps = {
@@ -18,7 +20,7 @@ type ProductProps = {
 const Product: React.VFC<ProductProps> = ({
   styles = {},
   className = '',
-  imageSrc = '',
+  imageSrc = DEFAULT_IMAGE,
   imageAlt = 'Product image',
   price = 0,
   title = '',

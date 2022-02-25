@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react';
 
 import { Products } from '@components/organisms';
 
+import { DEFAULT_IMAGE } from '@utils/addons';
+
 type ProductData = {
   id: string;
   mainImage: string;
@@ -10,9 +12,9 @@ type ProductData = {
 };
 
 const productsData: Array<ProductData> = [
-  { id: '1', mainImage: 'https://via.placeholder.com/150', price: 254.58, title: 'Sprandi' },
-  { id: '2', mainImage: 'https://via.placeholder.com/150', price: 127.58, title: 'Adidas' },
-  { id: '3', mainImage: 'https://via.placeholder.com/150', price: 892.58, title: 'Nike' },
+  { id: '1', mainImage: DEFAULT_IMAGE, price: 254.58, title: 'Sprandi' },
+  { id: '2', mainImage: DEFAULT_IMAGE, price: 127.58, title: 'Adidas' },
+  { id: '3', mainImage: DEFAULT_IMAGE, price: 892.58, title: 'Nike' },
 ];
 
 describe('Single standalone products tests', () => {
