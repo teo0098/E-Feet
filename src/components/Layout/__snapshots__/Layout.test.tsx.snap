@@ -3,7 +3,7 @@
 exports[`Layout component tests Snapshots content 1`] = `
 <div>
   <div
-    class="min-h-screen bg-slate-100 "
+    class="min-h-screen bg-slate-100 flex flex-col pb-16 "
     data-testid="mainLayout"
   >
     <header
@@ -99,7 +99,7 @@ exports[`Layout component tests Snapshots content 1`] = `
       </a>
       <a
         class="text-neutral-900 border-b-4 border-transparent "
-        href="/user"
+        href="/profile"
       >
         <svg
           aria-hidden="true"

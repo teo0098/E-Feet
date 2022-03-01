@@ -2,6 +2,8 @@ import { NavItem } from '@components/atoms';
 
 import { Cart, Heart, Home as HomeIcon, Search, User } from '@assets/icons';
 
+import { Pages } from '@utils/addons';
+
 type NavMenuType = {
   styles: { [key: string]: string };
   className: string;
@@ -13,11 +15,11 @@ type NavMenuType = {
 type NavigationType = Array<NavMenuType>;
 
 export const navigationMenu: NavigationType = [
-  { styles: {}, className: '', href: '/', children: <HomeIcon />, active: false },
-  { styles: {}, className: '', href: '/search', children: <Search />, active: false },
-  { styles: {}, className: '', href: '/wishlist', children: <Heart />, active: false },
-  { styles: {}, className: '', href: '/cart', children: <Cart />, active: false },
-  { styles: {}, className: '', href: '/user', children: <User />, active: false },
+  { styles: {}, className: '', href: Pages.HOME, children: <HomeIcon />, active: false },
+  { styles: {}, className: '', href: Pages.SEARCH, children: <Search />, active: false },
+  { styles: {}, className: '', href: Pages.WISHLIST, children: <Heart />, active: false },
+  { styles: {}, className: '', href: Pages.CART, children: <Cart />, active: false },
+  { styles: {}, className: '', href: Pages.PROFILE, children: <User />, active: false },
 ];
 
 type NavigationProps = {

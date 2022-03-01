@@ -7,7 +7,7 @@ type LayoutProps = {
 };
 
 const Layout: React.VFC<LayoutProps> = ({ children, className = '', styles = {} }) => {
-  const classNames: string = ['min-h-screen bg-slate-100', className].join(' ');
+  const classNames: string = ['min-h-screen bg-slate-100 flex flex-col pb-16', className].join(' ');
 
   return (
     <div style={styles} className={classNames} data-testid="mainLayout">
