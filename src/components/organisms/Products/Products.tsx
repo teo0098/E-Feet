@@ -24,7 +24,7 @@ const Products: React.VFC<ProductProps> = ({
   isError = false,
   data = [],
 }) => {
-  const classNames: string = ['', className].join(' ');
+  const classNames: string = ['p-3 grid grid-cols-2 gap-4', className].join(' ');
 
   if (isLoading) {
     return (

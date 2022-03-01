@@ -29,9 +29,11 @@ const Product: React.VFC<ProductProps> = ({
 
   return (
     <section data-testid="product" style={styles} className={classNames}>
-      <div>
+      <div className="relative h-[150px]">
         <Image src={imageSrc} layout="fill" objectFit="cover" alt={imageAlt} />
-        <Heart />
+        <span className="absolute top-1 left-1">
+          <Heart />
+        </span>
       </div>
       <Price>{price}</Price>
       <Title variant="h1">{title}</Title>
