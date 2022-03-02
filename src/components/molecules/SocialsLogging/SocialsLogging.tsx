@@ -1,9 +1,8 @@
-import React from 'react';
-// import { FacebookAuthProvider, TwitterAuthProvider } from 'firebase/auth';
-
 import { Button } from '@components/atoms';
 
 import { Facebook, Google, Twitter } from '@assets/icons';
+
+import useSocialsLogging from './useSocialsLogging';
 
 type SocialsLoggingProps = {
   styles?: { [key: string]: string };
@@ -16,6 +15,9 @@ const SocialsLogging: React.VFC<SocialsLoggingProps> = ({
   className = '',
   styles = {},
 }) => {
+  const { handleSignInWithGoogle, handleSignInWithFacebook, handleSignInWithTwitter } =
+    useSocialsLogging();
+
   const classNames: string = [
     'grid justify-center items-center content-center gap-4',
     className,
@@ -23,21 +25,21 @@ const SocialsLogging: React.VFC<SocialsLoggingProps> = ({
   return (
     <div data-testid="socialsLogging" className={classNames} style={styles}>
       <Button
-        // onClick={() => handleSignIn({ provider: new FacebookAuthProvider() })}
+        onClick={() => handleSignInWithFacebook()}
         className="flex items-center text-slate-100 hover:text-slate-100 bg-facebook hover:bg-facebook"
       >
         <Facebook className="mr-1 text-slate-100" />
         Log in through Facebook
       </Button>
       <Button
-        // onClick={() => handleSignIn()}
+        onClick={() => handleSignInWithGoogle()}
         className="flex items-center text-slate-100 hover:text-slate-100 bg-google hover:bg-google"
       >
         <Google className="mr-1 text-slate-100" />
         Log in through Google
       </Button>
       <Button
-        // onClick={() => handleSignIn({ provider: new TwitterAuthProvider() })}
+        onClick={() => handleSignInWithTwitter()}
         className="flex items-center text-slate-100 hover:text-slate-100 bg-twitter hover:bg-twitter"
       >
         <Twitter className="mr-1 text-slate-100" />

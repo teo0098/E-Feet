@@ -59,7 +59,7 @@ const reducer = (state: InitialState, action: Action) => {
   }
 };
 
-const useRequest = (query: () => Promise<void>) => {
+const useRequest = (query: () => Promise<any> = () => Promise.resolve()) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleDispatchLoading = () => dispatch({ type: ActionTypes.LOADING });
@@ -72,10 +72,10 @@ const useRequest = (query: () => Promise<void>) => {
     dispatch({ type: ActionTypes.SUCCESS, payload: { data } });
   };
 
-  const handlePerformRequest = async () => {
+  const handlePerformRequest = async (innerQuery: typeof query = query) => {
     try {
       handleDispatchLoading();
-      const data = await query();
+      const data = await innerQuery();
       handleDispatchSuccess(data);
     } catch (error) {
       handleDispatchError(error);
