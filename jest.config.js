@@ -17,6 +17,7 @@ module.exports = {
     '@components/(.*)': '<rootDir>/src/components/$1',
     '@assets/(.*)': '<rootDir>/src/assets/$1',
     '@utils/(.*)': '<rootDir>/src/utils/$1',
+    '@hooks/(.*)': '<rootDir>/src/hooks/$1',
   },
   moduleDirectories: ['node_modules', '<rootDir>/'],
   // Add more setup options before each test is run

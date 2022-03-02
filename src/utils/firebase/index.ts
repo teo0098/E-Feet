@@ -1,2 +1,2 @@
-export { firestore } from './init';
+export { firestore, auth } from './init';
 export { FirebaseCollections } from './collections';

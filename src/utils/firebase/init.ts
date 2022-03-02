@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: `${process.env.NEXT_PUBLIC_FIREBASE_API_KEY}`,
@@ -17,5 +18,6 @@ const initializeFirebase = (initialConfig = firebaseConfig) => {
 };
 
 const firestore = getFirestore(initializeFirebase());
+const auth = getAuth(initializeFirebase());
 
-export { firestore };
+export { firestore, auth };
