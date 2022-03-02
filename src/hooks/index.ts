@@ -1,3 +1,3 @@
-import useSocials from './useSocials';
+import useRequest from './useRequest';
 
-export { useSocials };
+export { useRequest };

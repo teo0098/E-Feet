@@ -5,8 +5,6 @@ import { Button } from '@components/atoms';
 
 import { Facebook, Google, Twitter } from '@assets/icons';
 
-// import { useSocials } from '@hooks/index';
-
 type SocialsLoggingProps = {
   styles?: { [key: string]: string };
   className?: string;
@@ -18,8 +16,6 @@ const SocialsLogging: React.VFC<SocialsLoggingProps> = ({
   className = '',
   styles = {},
 }) => {
-  // const { handleSignIn } = useSocials();
-
   const classNames: string = [
     'grid justify-center items-center content-center gap-4',
     className,
