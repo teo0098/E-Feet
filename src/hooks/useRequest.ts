@@ -1,66 +1,33 @@
 import { useReducer } from 'react';
 
-type InitialState = {
-  isError: boolean;
-  isLoading: boolean;
-  isSuccess: boolean;
-  error: any;
-  data: any;
+import {
+  Action,
+  ActionTypes,
+  initialState,
+  InitialState,
+  reducer,
+} from '@utils/reducers/useRequest';
+
+type UseRequestParams = (params?: {
+  customState?: Partial<InitialState>;
+  customReducer?: (state: InitialState, action: Action) => InitialState;
+  query?: () => Promise<any>;
+}) => {
+  response: InitialState;
+  handlePerformRequest: (innerQuery?: () => Promise<any>) => Promise<any>;
+  handleDispatchLoading: () => void;
+  handleDispatchError: (error: any) => void;
+  handleDispatchSuccess: (data: any) => void;
+  handleDispatchReset: () => void;
 };
 
-enum ActionTypes {
-  ERROR = 'ERROR',
-  LOADING = 'LOADING',
-  SUCCESS = 'SUCCESS',
-}
-
-type Action =
-  | { type: ActionTypes.ERROR; payload: { error: any } }
-  | { type: ActionTypes.LOADING }
-  | { type: ActionTypes.SUCCESS; payload: { data: any } };
-
-const initialState: InitialState = {
-  data: null,
-  error: null,
-  isError: false,
-  isLoading: false,
-  isSuccess: false,
-};
-
-const reducer = (state: InitialState, action: Action) => {
-  switch (action.type) {
-    case ActionTypes.ERROR:
-      return {
-        ...state,
-        isLoading: false,
-        isSuccess: false,
-        isError: true,
-        error: action.payload.error,
-      };
-    case ActionTypes.LOADING:
-      return {
-        ...state,
-        isLoading: true,
-        isSuccess: false,
-        isError: false,
-        error: null,
-      };
-    case ActionTypes.SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        isSuccess: true,
-        isError: false,
-        error: null,
-        data: action.payload.data,
-      };
-    default:
-      return state;
-  }
-};
-
-const useRequest = (query: () => Promise<any> = () => Promise.resolve()) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+const useRequest: UseRequestParams = ({
+  customState = initialState,
+  customReducer = reducer,
+  query = () => Promise.resolve(),
+} = {}) => {
+  const mappedCustomState = { ...initialState, ...customState };
+  const [state, dispatch] = useReducer(customReducer, { ...mappedCustomState });
 
   const handleDispatchLoading = () => dispatch({ type: ActionTypes.LOADING });
 
@@ -72,6 +39,8 @@ const useRequest = (query: () => Promise<any> = () => Promise.resolve()) => {
     dispatch({ type: ActionTypes.SUCCESS, payload: { data } });
   };
 
+  const handleDispatchReset = () => dispatch({ type: ActionTypes.RESET });
+
   const handlePerformRequest = async (innerQuery: typeof query = query) => {
     try {
       handleDispatchLoading();
@@ -82,7 +51,14 @@ const useRequest = (query: () => Promise<any> = () => Promise.resolve()) => {
     }
   };
 
-  return { response: state, handlePerformRequest };
+  return {
+    response: state,
+    handlePerformRequest,
+    handleDispatchLoading,
+    handleDispatchError,
+    handleDispatchSuccess,
+    handleDispatchReset,
+  };
 };
 
 export default useRequest;
